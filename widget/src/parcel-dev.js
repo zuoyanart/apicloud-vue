@@ -25,7 +25,7 @@ const options = {
   watch: process.env.NODE_ENV !== 'production',
   cache: false, // 启用或禁用缓存，默认为 true
   cacheDir: '.cache', // 存放缓存的目录，默认为 .cache
-  minify: process.env.NODE_ENV === 'production',
+  minify: false, // process.env.NODE_ENV === 'production',
   hmr: false,
   contentHash: false,
   target: 'browser', // 浏览器/node/electron, 默认为 browser
