@@ -4,5 +4,5 @@
 /widget/dist/*.html
 /widget/dist/*.jpg
 /widget/dist/*.png
-/widget/src/html/*.html
-/widget/src/html/*.js
+/widget/dist/html
+/widget/src/html
