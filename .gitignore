@@ -1,0 +1,8 @@
+/widget/src/node_modules
+/widget/dist/*.js
+/widget/dist/*.css
+/widget/dist/*.html
+/widget/dist/*.jpg
+/widget/dist/*.png
+/widget/src/html/*.html
+/widget/src/html/*.js
