@@ -22,10 +22,10 @@ const options = {
   outDir: '../dist/', // 将生成的文件放入输出目录下，默认为 dist
   outFile: 'map', // 输出文件的名称
   publicUrl: '../', // 静态资源的 url ，默认为 dist
-  watch: true, // 是否需要监听文件并在发生改变时重新编译它们，默认为 process.env.NODE_ENV !== 'production'
+  watch: process.env.NODE_ENV !== 'production',
   cache: false, // 启用或禁用缓存，默认为 true
   cacheDir: '.cache', // 存放缓存的目录，默认为 .cache
-  minify: false, // 压缩文件，当 process.env.NODE_ENV === 'production' 时，会启用
+  minify: process.env.NODE_ENV === 'production',
   hmr: false,
   contentHash: false,
   target: 'browser', // 浏览器/node/electron, 默认为 browser

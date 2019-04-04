@@ -1,15 +1,10 @@
 {
-  "name": "fis-static",
+  "name": "apicloudParcel",
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "export NODE_ENV=development&&export OBJ_ENV=dev&&node dev.js",
-    "dev-admin": "set NODE_ENV=production&&set OBJ_ENV=pro&&node dev-admin.js",
-    "dev-touch": "export NODE_ENV=development&&export OBJ_ENV=dev&&node dev-touch.js",
-    "test": "export NODE_ENV=production&&export OBJ_ENV=test&&rm -ifr ../dist&& node pro.js",
-    "release": "export NODE_ENV=production&&export OBJ_ENV=pro&&rm -ifr ../www/static/home&& node dev.js",
-    "release-touch": "export NODE_ENV=production&&export OBJ_ENV=pro&&rm -ifr ../www/static/touch&& node dev-touch.js",
-    "release-admin": "export NODE_ENV=production&&export OBJ_ENV=pro&&rm -ifr ../www/static/admin&& node pro-admin.js"
+    "dev": "set NODE_ENV=development&&set OBJ_ENV=dev&&node parcel-dev.js",
+    "build": "set NODE_ENV=production&&set OBJ_ENV=pro&&node parcel-dev.js"
   },
   "author": "",
   "license": "ISC",
