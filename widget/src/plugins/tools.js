@@ -11,6 +11,10 @@ const superagent = require('superagent');
 
 const tools = function (config = {}) {
   const self = {};
+
+  self.sleep = function (ms) { // 等待一段时间
+    return new Promise(resolve => setTimeout(resolve, ms));
+  };
   /**
    *
    */

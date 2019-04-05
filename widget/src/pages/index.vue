@@ -6,11 +6,13 @@
   <div>
     <badge text="123"></badge>
     <x-button type="primary" @click.native="asd">go to test</x-button>
+    <base-swipper></base-swipper>
   </div>
 </template>
 
 <script>
 import { Badge, XButton } from 'vux';
+import swipper from '../components/swipper/index';
 
 export default {
   data() {
@@ -43,7 +45,8 @@ export default {
   },
   components: {
     Badge,
-    XButton
+    XButton,
+    'base-swipper': swipper
   }
 };
 </script>
