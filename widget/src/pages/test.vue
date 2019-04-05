@@ -9,12 +9,11 @@
     <br>asd12
     <br>
 
-    <x-button type="warn" @click.native="asd">go to index</x-button>
+    <van-button type="danger" @click="asd">危险按钮</van-button>
   </div>
 </template>
 
 <script>
-import { Badge, XButton } from 'vux';
 
 export default {
   data() {
@@ -22,22 +21,8 @@ export default {
   },
   methods: {
     asd() {
-
-      api.openFrame({
-        name: 'pageINdex',
-        url: './index.html',
-        rect: {
-          x: 0,
-          y: 0,
-          w: 'auto',
-          h: 'auto'
-        },
-        pageParam: {
-          name: 'test'
-        }
-      });
+      this.$router.push('/');
     }
-
   },
   created() {
 
@@ -46,8 +31,7 @@ export default {
     console.log('asdasd', api.safeArea);
   },
   components: {
-    Badge,
-    XButton
+
   }
 };
 </script>

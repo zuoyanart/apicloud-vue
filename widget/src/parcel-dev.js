@@ -14,23 +14,23 @@ const cheerio = require('cheerio')
 const ejs = require('ejs')
 
 // 入口文件路径
-const file = Path.join(__dirname, '/map.html');
+const file = Path.join(__dirname, '/index.html');
 const tplPath = Path.join('pages');
 
 // Bundler 选项
 const options = {
   outDir: '../dist/', // 将生成的文件放入输出目录下，默认为 dist
-  outFile: 'map', // 输出文件的名称
-  publicUrl: '../', // 静态资源的 url ，默认为 dist
+  outFile: 'index', // 输出文件的名称
+  publicUrl: './', // 静态资源的 url ，默认为 dist
   watch: process.env.NODE_ENV !== 'production',
   cache: false, // 启用或禁用缓存，默认为 true
   cacheDir: '.cache', // 存放缓存的目录，默认为 .cache
   minify: false, // process.env.NODE_ENV === 'production',
-  hmr: false,
   contentHash: false,
   target: 'browser', // 浏览器/node/electron, 默认为 browser
   https: false, // 服务器文件使用 https 或者 http，默认为 false
   logLevel: 3, // 3 = 输出所有内容，2 = 输出警告和错误, 1 = 输出错误
+  hmr: false,
   hmrPort: 0, // hmr socket 运行的端口，默认为随机空闲端口(在 Node.js 中，0 会被解析为随机空闲端口)
   sourceMaps: false, // 启用或禁用 sourcemaps，默认为启用(在精简版本中不支持)
   hmrHostname: '', // 热模块重载的主机名，默认为 ''
@@ -38,47 +38,50 @@ const options = {
 };
 
 async function build() {
-  const watcher = chokidar.watch('./pages', {});
-  watcher.on('add', async (path) => {
-      console.log('path', path);
-      if (path.endsWith('.vue') === -1) {
-        return false;
-      }
-      const filename = path.replace(tplPath, '').split('.')[0].replace(/\\/g, '/');
-      console.log('filename', filename);
-      //生成html
-      let tplStr = await ejsSync('./template/index.ejs', {
-        path: filename.replace(/\\/g, '/')
-      });
-      fs.outputFileSync('./html/' + filename + '.html', tplStr);
+  // const watcher = chokidar.watch('./pages', {});
+  // watcher.on('add', async (path) => {
+  //     console.log('path', path);
+  //     if (path.endsWith('.vue') === -1) {
+  //       return false;
+  //     }
+  //     const filename = path.replace(tplPath, '').split('.')[0].replace(/\\/g, '/');
+  //     console.log('filename', filename);
+  //     //生成html
+  //     let tplStr = await ejsSync('./template/index.ejs', {
+  //       path: filename.replace(/\\/g, '/')
+  //     });
+  //     fs.outputFileSync('./html/' + filename + '.html', tplStr);
 
-      //生成man.js
-      tplStr = await ejsSync('./template/main.ejs', {
-        path: path.replace(tplPath, '').replace(/\\/g, '/')
-      });
-      fs.outputFileSync('./html/' + filename + '.main.js', tplStr);
+  //     //生成man.js
+  //     tplStr = await ejsSync('./template/main.ejs', {
+  //       path: path.replace(tplPath, '').replace(/\\/g, '/')
+  //     });
+  //     fs.outputFileSync('./html/' + filename + '.main.js', tplStr);
 
-      //给模板注入内容
-      const fileContent = fs.readFileSync('./map.html', "utf-8");
-      const $ = cheerio.load(fileContent);
-      $('#' + path).remove();
-      $('#body-content').append('<p id="' + path + '"><a href="./html' + filename + '.html' + '">' + filename + '</a></p>');
-      fs.outputFileSync('./map.html', $.html());
-    })
-    .on('unlink', path => {
-      console.log('unlink');
-      // const fileContent = fs.readFileSync('./map.html', "utf-8");
-      // const $ = cheerio.load(fileContent);
-      // $('#' + path).remove();
-      // fs.writeFile('./map.html', $.html());
-    });
+  //     //给模板注入内容
+  //     const fileContent = fs.readFileSync('./map.html', "utf-8");
+  //     const $ = cheerio.load(fileContent);
+  //     $('#' + path).remove();
+  //     $('#body-content').append('<p id="' + path + '"><a href="./html' + filename + '.html' + '">' + filename + '</a></p>');
+  //     fs.outputFileSync('./map.html', $.html());
+  //   })
+  //   .on('unlink', path => {
+  //     console.log('unlink');
+  //     // const fileContent = fs.readFileSync('./map.html', "utf-8");
+  //     // const $ = cheerio.load(fileContent);
+  //     // $('#' + path).remove();
+  //     // fs.writeFile('./map.html', $.html());
+  //   });
   // 使用提供的入口文件路径和选项初始化 bundler
   const bundler = new Bundler(file, options);
   // 运行 bundler，这将返回主 bundle
   // 如果你正在使用监听模式，请使用下面这些事件，这是因为该 promise 只会触发一次，而不是每次重新构建时都触发
-  const bundle = await bundler.bundle();
-
-  // const bundle = await bundler.serve();
+  // const bundle = await bundler.bundle();
+  if (process.env.NODE_ENV !== 'development' || true) { // 非开发环境
+    await bundler.bundle();
+  } else { // 生产或者测试环境
+    await bundler.serve(); // 触发内部server
+  }
 }
 
 function ejsSync(file, data = {}, option = {}) {

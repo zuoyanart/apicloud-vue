@@ -7,7 +7,7 @@
 	<author email="huabinglan@163.com" href="https://github.com/zuoyanit">
 	左盐
 	</author>
-	<content src="./dist/html/index.html" />
+	<content src="./dist/index.html" />
 	<preference name="appBackground" value="rgba(0,0,0,0)"/>
 	<preference name="windowBackground" value="rgba(0,0,0,0)"/>
 	<preference name="frameBackgroundColor" value="rgba(255,255,255,255)"/>

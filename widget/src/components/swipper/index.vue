@@ -17,28 +17,20 @@ export default {
 
   },
   async mounted() {
-    api.addEventListener({
-      name: 'viewappear'
-    }, function (ret, err) {
-      alert('应用回到后台');
-    });
     this.UIScrollPicture = api.require('UIScrollPicture');
     console.log('widget://' + img1.replace('../', 'dist/'));
     console.log(new Date().getTime());
-    this.$nextTick(() => {
-      alert(1);
-    });
 
     this.UIScrollPicture.open({
       rect: {
         x: 0,
-        y: 50,
+        y: 500,
         w: api.winWidth,
         h: 300
       },
       data: {
         paths: ['https://goss.vcg.com/creative/vcg/800/version23/VCG4198669215.jpg', 'widget://dist/2.38ad9b0d.jpg',
-          'widget://' + img3.replace('../', 'dist/')],
+          'widget://dist' + img3],
         captions: ['竹', '屋', '花']
       },
       styles: {
@@ -76,9 +68,14 @@ export default {
       }
     });
   },
+  destroyed() {
+    this.UIScrollPicture.hide();
+    this.UIScrollPicture.close();
+  },
   watch: {
     '$router'() {
-      console.log('asdasd');
+      console.error('asdasd111');
+
     }
   }
 }

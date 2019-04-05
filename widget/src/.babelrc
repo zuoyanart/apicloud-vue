@@ -7,19 +7,17 @@
         "regenerator": true
       }
     ],
-    ["transform-object-rest-spread"],
     ["module-resolver", {
       "alias": {
         "vue": "vue/dist/vue.esm.js",
-        "pizzatools": "./plugins/tools.js",
-        "vux1": "vux/index.js",
+        "pizzatools": "./plugins/tools.js"
       }
     }],
-    ["import", {
-      "libraryName": "vux",
-      "libraryDirectory": "src/components",
-      "style": false
-    }, "vux"]
+    // ["import", {
+    //   "libraryName": "vux",
+    //   "libraryDirectory": "src/components",
+    //   "style": false
+    // }, "vux"]
 
   ]
 }
