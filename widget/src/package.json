@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
+    "cheerio": "^1.0.0-rc.3",
     "chokidar": "^2.1.5",
     "ejs": "^2.6.1",
     "http2": "^3.3.7",
@@ -17,7 +17,7 @@
     "process": "^0.11.9",
     "superagent": "^3.8.3",
     "uuid": "^3.3.2",
-    "vant": "^1.6.12",
+    "vant": "^1.6.13",
     "vue": "^2.6.10",
     "vue-router": "^3.0.2",
     "vux": "^2.9.2",
