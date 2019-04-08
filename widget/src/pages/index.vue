@@ -4,14 +4,12 @@
 
 <template>
   <div>
-    <badge text="123"></badge>
-    <x-button type="primary" @click.native="asd">go to test</x-button>
+    <van-button type="danger" @click="asd">go to test</van-button>
     <base-swipper></base-swipper>
   </div>
 </template>
 
 <script>
-import { Badge, XButton } from 'vux';
 import swipper from '../components/swipper/index';
 
 export default {
@@ -31,21 +29,15 @@ export default {
         },
         pageParam: {
           name: 'test'
-        },
-        animation: {
-          type: "fade",                //动画类型（详见动画类型常量）
-          subType: "from_right",       //动画子类型（详见动画子类型常量）
-          duration: 300
         }
       });
     }
   },
   mounted() {
-    // console.log(document.location.href);
+    console.log('href=', document.location.href);
+    console.log(document.location.href);
   },
   components: {
-    Badge,
-    XButton,
     'base-swipper': swipper
   }
 };

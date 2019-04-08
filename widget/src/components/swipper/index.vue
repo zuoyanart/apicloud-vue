@@ -17,18 +17,14 @@ export default {
 
   },
   async mounted() {
-    api.addEventListener({
-      name: 'viewappear'
-    }, function (ret, err) {
-      alert('应用回到后台');
-    });
+    console.log('UIScrollPicture======');
+    console.log(this.UIScrollPicture);
+    if (Object.keys(this.UIScrollPicture).length > 0) {
+      return;
+    }
     this.UIScrollPicture = api.require('UIScrollPicture');
     console.log('widget://' + img1.replace('../', 'dist/'));
     console.log(new Date().getTime());
-    this.$nextTick(() => {
-      alert(1);
-    });
-
     this.UIScrollPicture.open({
       rect: {
         x: 0,
@@ -64,22 +60,23 @@ export default {
         contentMode: 'scaleToFill',
         interval: 3,
         loop: true,
-        fixedOn: '', //（可选项）模块视图添加到指定 frame 的名字,默认依附于当前 window
+        fixedOn: 'pageINdex', //（可选项）模块视图添加到指定 frame 的名字,默认依附于当前 window
         fixed: false
       },
       function(ret, err) {
         if (ret) {
           alert(JSON.stringify(ret));
+          api.closeFrame({
+            name: 'page2'
+          });
         } else {
           alert(JSON.stringify(err));
         }
       }
     });
   },
-  watch: {
-    '$router'() {
-      console.log('asdasd');
-    }
+  destroyed() {
+    alert(2);
   }
 }
 </script>

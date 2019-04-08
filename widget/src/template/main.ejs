@@ -3,14 +3,14 @@ import App from '/pages<%= path%>';
 import tools from 'pizzatools';
  import siteConfig from '/config.js';
 
-import YDUI from 'vue-ydui';
-import 'vue-ydui/dist/ydui.rem.css';
+import Vant from 'vant';
+import 'vant/lib/index.css';
 
 
 // import '../../assets/css/reset.css';
 // import './assets/base.less';
 
-Vue.use(YDUI);
+Vue.use(Vant);
 
 Vue.prototype.$tools = tools(siteConfig);
 Vue.prototype.$siteConfig = siteConfig;

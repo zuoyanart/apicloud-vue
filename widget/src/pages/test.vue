@@ -9,7 +9,7 @@
     <br>asd12
     <br>
 
-    <x-button type="warn" @click.native="asd">go to index</x-button>
+    <van-button type="danger" @click="asd">go to index</van-button>
   </div>
 </template>
 
@@ -22,7 +22,6 @@ export default {
   },
   methods: {
     asd() {
-
       api.openFrame({
         name: 'pageINdex',
         url: './index.html',
@@ -46,8 +45,6 @@ export default {
     console.log('asdasd', api.safeArea);
   },
   components: {
-    Badge,
-    XButton
   }
 };
 </script>
