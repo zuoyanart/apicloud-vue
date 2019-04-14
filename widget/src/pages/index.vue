@@ -34,8 +34,7 @@ export default {
     }
   },
   mounted() {
-    console.log('href=', document.location.href);
-    console.log(document.location.href);
+    alert('index mounted');
   },
   components: {
     'base-swipper': swipper
