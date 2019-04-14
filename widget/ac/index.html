@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="fragment" content="!">
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="fragment" content="!">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <script src="./plugins//polyfill.min.js"></script>
+  <!-- <script src="./plugins/api.js"></script> -->
+  <!-- <link rel="stylesheet" href="//at.alicdn.com/t/font_82ylb2tzhh44e7b9.css"> -->
+</head>
+
+
+<body>
+
+  <script>
+    window.apiready = function () {
+      api.openFrame({
+        name: 'page2',
+        url: 'http://192.168.3.52:1234',
+        rect: {
+          x: 0,
+          y: 0,
+          w: 'auto',
+          h: 'auto'
+        },
+        pageParam: {
+          name: 'test'
+        }
+      });
+    };
+  </script>
+</body>
+
+</html>

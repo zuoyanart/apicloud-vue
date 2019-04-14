@@ -7,7 +7,7 @@
 	<author email="huabinglan@163.com" href="https://github.com/zuoyanit">
 	左盐
 	</author>
-	<content src="./dist/index.html" />
+	<content src="./ac/index.html" />
 	<preference name="appBackground" value="rgba(0,0,0,0)"/>
 	<preference name="windowBackground" value="rgba(0,0,0,0)"/>
 	<preference name="frameBackgroundColor" value="rgba(255,255,255,255)"/>
@@ -15,7 +15,7 @@
 	<preference name="autoUpdate" value="true"/>
 	<preference name="smartUpdate" value="true"/>
 	<preference name="debug" value="false"/>
-	<preference name="statusBarAppearance" value="true"/>
+	<preference name="statusBarAppearance" value="false"/>
 	<preference name="pageBounce" value="false"/>
 	<permission name="location"/>
 	<permission name="internet"/>

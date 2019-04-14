@@ -1,8 +1,0 @@
-{
-	"compress": {
-	  "join_vars": false,
-	  "reduce_vars": true,
-    "drop_console": true
-	},
-	"mangle": false
-}
